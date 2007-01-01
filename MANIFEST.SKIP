@@ -1,0 +1,9 @@
+t/critic\.t  # http://search.cpan.org/~thaljef/Test-Perl-Critic/lib/Test/Perl/Critic.pm#CAVEATS
+^Konfidi-Client-
+^_build
+^Build$
+^blib
+~$
+\.bak$
+CVS
+\.svn
