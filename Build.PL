@@ -3,6 +3,7 @@ use warnings;
 use Module::Build 0.26; # 'make testcover' support begins, which we want to encourage/force
 
 my $builder = Module::Build->new(
+    sign => 1,
     module_name         => 'Konfidi::Client',
     license             => 'apache',
     dist_author         => 'Dave Brondsema <dave@brondsema.net>',

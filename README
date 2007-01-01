@@ -11,11 +11,13 @@ To install this module, run the following commands:
     ./Build test
     ./Build install
 
-Developers should run:
+DEVELOPMENT
+
+    Developers should run these as part of their development cycle
 
     ./Build clean
-    ./Build testcover --test_files t/unit.t
-    ./Build test
+    ./Build testcover # and verify 100% coverage
+    prove t/dev # to run 'development' tests
 
 SUPPORT AND DOCUMENTATION
 

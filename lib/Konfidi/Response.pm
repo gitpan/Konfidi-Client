@@ -27,11 +27,11 @@ A hash of values as the response from querying the Konfidi TrustServer.  The 'Ra
 
 =head1 VERSION
 
-Version 1.0.0
+Version 1.0.1
 
 =cut
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.0.1';
 
 =head1 SYNOPSIS
 
@@ -57,16 +57,17 @@ our $VERSION = '1.0.0';
 
 =head1 METHODS
 
-=head2 new
+=head2 C<new()>
 
 =cut
 
+use Carp;
 use Scalar::Util qw(refaddr);
 
 sub new {
     my $this = shift;
     my $class = ref($this) || $this;
-    die unless $class;
+    croak unless $class;
     my $self = {};
     bless $self, $class;
     return $self;

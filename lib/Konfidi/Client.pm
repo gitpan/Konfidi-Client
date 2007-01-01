@@ -18,7 +18,7 @@ use strict;
 
 =head1 NAME
 
-Konfidi::Client - interact with a Konfidi TrustServer
+Konfidi::Client - Interact with a Konfidi TrustServer
 
 =head1 DESCRIPTION
 
@@ -26,11 +26,11 @@ Konfidi is a trust framework that uses topical trust values from a social networ
 
 =head1 VERSION
 
-Version 1.0.0
+Version 1.0.1
 
 =cut
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.0.1';
 
 =head1 SYNOPSIS
 
@@ -51,12 +51,13 @@ See L<Error> for error handling documentation
 
 =head1 METHODS
 
-=head2 new
+=head2 C<new()>
 
 Create a new C<Konfidi::Client>
 
 =cut
 
+use Carp;
 use LWP::UserAgent;
 use Konfidi::Client::Error;
 use Konfidi::Response;
@@ -64,7 +65,7 @@ use Konfidi::Response;
 sub new {
     my $this = shift;
     my $class = ref($this) || $this;
-    die unless $class;
+    croak unless $class;
     my $self = {};
     bless $self, $class;
     $self->_initialize();

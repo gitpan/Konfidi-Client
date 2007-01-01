@@ -9,10 +9,11 @@ META.yml			# Will be created by "make dist"
 README
 t/00-load.t
 t/boilerplate.t
-t/critic.t
-t/functional.t
+t/dev/critic.t
+t/dev/functional.t
 t/pod-coverage.t
 t/pod.t
 t/unit-Client.t
 t/unit-Error.t
 t/unit-Response.t
+SIGNATURE    Added here by Module::Build
