@@ -15,7 +15,7 @@ my $builder = Module::Build->new(
     },
     requires => {
         'LWP::UserAgent' => 0,
-        'Error::Simple' => 0,
+        'Error' => 0,
     },
     add_to_cleanup      => [ 'Konfidi-*' ],
 );

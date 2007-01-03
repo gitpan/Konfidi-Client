@@ -27,11 +27,11 @@ See L<Error|http://search.cpan.org/perldoc?Error> for error handling documentati
 
 =head1 VERSION
 
-Version 1.0.1
+Version 1.0.2
 
 =cut
 
-our $VERSION = '1.0.1';
+our $VERSION = '1.0.2';
 
 use base 'Error::Simple';
 
