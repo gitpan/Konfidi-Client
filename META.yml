@@ -1,6 +1,6 @@
 ---
 name: Konfidi-Client
-version: 1.0.2
+version: 1.0.3
 author:
   - Dave Brondsema <dave@brondsema.net>
 abstract: Interact with a Konfidi TrustServer
@@ -8,22 +8,25 @@ license: apache
 resources:
   license: http://apache.org/licenses/LICENSE-2.0
 requires:
+  Carp: 0
   Error: 0
   LWP::UserAgent: 0
+  Scalar::Util: 0
 build_requires:
   HTTP::Daemon: 0
+  Module::Build: 0.26
   Test::Exception: 0
   Test::More: 0
 provides:
   Konfidi::Client:
     file: lib/Konfidi/Client.pm
-    version: 1.0.2
+    version: 1.0.3
   Konfidi::Client::Error:
     file: lib/Konfidi/Client/Error.pm
-    version: 1.0.2
+    version: 1.0.3
   Konfidi::Response:
     file: lib/Konfidi/Response.pm
-    version: 1.0.2
+    version: 1.0.3
 generated_by: Module::Build version 0.28
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

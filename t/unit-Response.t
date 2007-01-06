@@ -6,8 +6,6 @@ use warnings;
 use Test::More tests => 6;
 use Test::Exception;
 
-use Acme::Comment;
-use Data::Dumper;
 use Konfidi::Client;
 
 BEGIN {

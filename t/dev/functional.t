@@ -6,7 +6,6 @@ use warnings;
 use Test::More tests => 6;
 use Test::Exception;
 
-use Acme::Comment;
 use Error qw(:try);
 use POSIX;
 

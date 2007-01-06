@@ -26,11 +26,11 @@ Konfidi is a trust framework that uses topical trust values from a social networ
 
 =head1 VERSION
 
-Version 1.0.2
+Version 1.0.3
 
 =cut
 
-our $VERSION = '1.0.2';
+our $VERSION = '1.0.3';
 
 =head1 SYNOPSIS
 

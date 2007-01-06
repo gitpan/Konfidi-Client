@@ -9,6 +9,7 @@ my $builder = Module::Build->new(
     dist_author         => 'Dave Brondsema <dave@brondsema.net>',
     dist_version_from   => 'lib/Konfidi/Client.pm',
     build_requires => {
+        'Module::Build' => 0.26,
         'Test::More' => 0,
         'Test::Exception' => 0,
         'HTTP::Daemon' => 0,
@@ -16,6 +17,8 @@ my $builder = Module::Build->new(
     requires => {
         'LWP::UserAgent' => 0,
         'Error' => 0,
+        'Carp' => 0,
+        'Scalar::Util' => 0,
     },
     add_to_cleanup      => [ 'Konfidi-*' ],
 );

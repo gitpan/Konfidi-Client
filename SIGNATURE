@@ -1,12 +1,12 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.38.
+signed via the Module::Signature module, version 0.55.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
 
     % cpansign -v
 
-It would check each file's integrity, as well as the signature's
+It will check each file's integrity, as well as the signature's
 validity.  If "==> Signature verified OK! <==" is not displayed,
 the distribution may already have been compromised, and you should
 not run its Makefile.PL or Build.PL.
@@ -14,38 +14,38 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-SHA1 9b226e727ef0852b256687eecdc76042d477044c Build.PL
-SHA1 447fd285cc3473d295d322864fc66cc4fc7bc4ce Changes
+SHA1 9dc50315926da41551fe313e0b9e73681f9fee15 Build.PL
+SHA1 0840828cefe29ebb46b560b2d9c5bc91a5fdc88b Changes
 SHA1 ed5672403d4ff421dee87c6a1ce3aaa926a25e25 MANIFEST
 SHA1 744378b1fb731078257d13a27be2b078e3e8d7f0 MANIFEST.SKIP
-SHA1 72210458e9b2523ca3ab0bd18907292af78d85d9 META.yml
+SHA1 0210c38faeb637da30e5c9b2c3151655072a6d78 META.yml
 SHA1 6c14b750bf5970f37b8daf3137f04a7835c8ca4c README
-SHA1 902db0fe726a770194d83bf9111bf52dc7cf3123 lib/Konfidi/Client.pm
-SHA1 ed1ae62d573286fbbe4d2688bb7411042e5b51ac lib/Konfidi/Client/Error.pm
-SHA1 bc721628673fb61effaea51ef7028e3cda14a138 lib/Konfidi/Response.pm
+SHA1 f827856a11becb7b23b41a4b1c9859648b93243f lib/Konfidi/Client.pm
+SHA1 9b4d30c817682805b3227c9967b7f304bb68198b lib/Konfidi/Client/Error.pm
+SHA1 c60ff558e11cd37b926707f340f9b29c5820750e lib/Konfidi/Response.pm
 SHA1 3e06489733640bfa4b4e48ded210556c9856184f t/00-load.t
 SHA1 0948fe7acb2daa9bd59c5a46b29e0618703ce7ff t/boilerplate.t
 SHA1 83565e0c105f4b6c5dbd31598884e6ff21f2a5c6 t/dev/critic.t
-SHA1 2acf8df1ca4c92987165d651161f5e0e1a384ba6 t/dev/functional.t
+SHA1 d1e0d5074fa18d47eb7e79a8682002eadc488deb t/dev/functional.t
 SHA1 6da39b48ce64b584e4c3274bff96fc76ff484820 t/pod-coverage.t
 SHA1 0190346d7072d458c8a10a45c19f86db641dcc48 t/pod.t
-SHA1 67eb84f239ee5281a082b96034fdb03f54a2264a t/unit-Client.t
-SHA1 38f61ecddeeb50edfb91e4eb8205446cbfa1126a t/unit-Error.t
-SHA1 13594133cc21afa0d2f183cab5ee057861324e82 t/unit-Response.t
+SHA1 018a05eb0c0fb582738d6d85c05937fc078f52f7 t/unit-Client.t
+SHA1 169460f86849ea19a61dbca56e734e55337f0ffd t/unit-Error.t
+SHA1 f89f0d5514f0b086325b8f8f8782de91cfbe278b t/unit-Response.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.5 (GNU/Linux)
+Version: GnuPG v1.4.6 (GNU/Linux)
 
-iQIVAwUBRZrzGGc36lVi77tzAQrzzBAAm8RqrfsgASw7ggFrxjUxGuQCXMyb/8+S
-T2inFvfoUDTyiLc0dtciaepJ+36rlJT0UVyS6WGNsMhucsE1KTpGO8aTL4MzZ4hD
-rP8sTrStYFaOwTQUm9KvrSN+zce9Uc5unozRoElTQ2W3xjWSWe3iOw6ql293QoA/
-Ja5AEwmCVUPsP4x/8WOrJjDJ0lUqMz1h2vw0baTT5gOVN18A1SPKSKxxjoZrwfGH
-YOg/AMXB1u1SWMNGKLCqgMzVN5NdamgN9J9tzt+2HW0ip/p0O52kPpCVBPDSSys/
-IZtZSEc0lPcNkLhCcoAHXIkbTz7haTrc8AV4OV8C1dRFmEnbMo9wK/NCchNmTQWV
-soYJilnu8Km9J2FX3YbuMm4Np7N1tMwF3bdeerHig9FoY2AfprtjS0TE9AOXRiRD
-hknZBoHBqZUWLLOlv70lGIurde0L86OzwvHc4Kov69CIEQfpGTM51dNvbtdQJlvD
-+tADbUpEP8Swzc27Iye86P400bTKRmwthFmMqRO0KasYr8So5QwtN39Ivemsgwp8
-9rhSciryVOi9i7cp9Bz+mv7/lOeaYHJk/8XSXhl7G7PIGxVmzgFsLxdo7hzSyXBk
-dYszjmgWWT4mJdAN5haxjeUBsaxDVo+mLCS9OrTxVlnbqDLnMx/ExoQ0U8W+SL+7
-gFaTqVM/flw=
-=oES1
+iQIVAwUBRaANbWc36lVi77tzAQpzDg/8D53/O/vdwN60gB3UOqtm+IQ4BKAO/hnc
+HB1aiOp3iZEH1dJ2FVWSw1IfTFB7Pv+XoRivqithLTAJ4c4RxLuVbJV6t3xCiqNb
+CdlRQ71MjV39eI5f4r9BIq2QUeDyek6KOzvXupwjtxW5up/eRnW12V2/jFoOc+ic
+ARAt1aFYX3vJlrQHA6kflUirXILPMwaw8nEnY2JoLCGqw43JP/ZxvbaDm9YzWnxa
+XfoNNXJVmGZPE7lp/HnZrIrcGa5PYqCvlth2HlYEFbYmu1ipTqoDDwXn58ef8fTO
+d1Zk1vHa2+aY8khx7dH5s/uKf+CC3X05S5IqIQHBFk4RFxmlrHP/soK9+/IWrdK9
+Pr+VjuNHqDc9hzQvd5W4D2QAc7rr97U2RXcJQHOJb8xIHU+DH2ASPVoE/TN8hnvI
+fQXVuN4iRrDxB/P0aqnVMmOFhxGuh9qNdotFgc0Lj8kcy3TrevZQrO7qS/14d24w
+CQQbbb5FOYHyu5Ofyp7gDppwebQP4LEFUFN+1lhD/7/GtUzTNYELPyUnSpAjbFlx
+6OgZ+Yadw7Ln9o3K53IgnloeRjpT3fWV7HJCiMdaKe7s58y67AvJLEopEShirQED
+0Slycwk1bfKsRCRX/aVlKWVMuyqPzktyYI/dEIbJ3KD8AVh0ROrHuWsmmoNeacS3
+y0j7JzMLyXI=
+=eYbY
 -----END PGP SIGNATURE-----

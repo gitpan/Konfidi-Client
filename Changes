@@ -1,5 +1,7 @@
 Revision history for Konfidi
 
+1.0.2    6 Jan 2007
+        Remove tests' unnecessary and undeclared usage of Acme::Comment
 1.0.2    2 Jan 2007
         Fixed dependency declaration on Error.pm
 1.0.1    1 Jan 2007

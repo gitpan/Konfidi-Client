@@ -6,7 +6,6 @@ use warnings;
 use Test::More tests => 16;
 use Test::Exception;
 
-use Acme::Comment;
 use Error qw(:try);
 use HTTP::Daemon;
 use HTTP::Status;
