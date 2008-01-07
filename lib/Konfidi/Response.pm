@@ -27,11 +27,11 @@ A hash of values as the response from querying the Konfidi TrustServer.  The 'Ra
 
 =head1 VERSION
 
-Version 1.0.3
+Version 1.0.4
 
 =cut
 
-our $VERSION = '1.0.3';
+our $VERSION = '1.0.4';
 
 =head1 SYNOPSIS
 
@@ -42,7 +42,7 @@ our $VERSION = '1.0.3';
     my $k = Konfidi::Client->new();
     $k->server('http://test-server.konfidi.org');
     try {
-        my $response = $k->query($truster_40char_pgp_fingerprint, $trusted_40char_pgp_fingerprint, 'internet-communication');
+        my $response = $k->query($truster_40char_pgp_fingerprint, $trusted_40char_pgp_fingerprint, 'http://www.konfidi.org/ns/topics/0.0#internet-communication');
     } catch Konfidi::Client::Error with {
         my $E = shift;
         die "Couldn't query the trustserver: $E";

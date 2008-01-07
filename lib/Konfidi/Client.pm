@@ -26,21 +26,21 @@ Konfidi is a trust framework that uses topical trust values from a social networ
 
 =head1 VERSION
 
-Version 1.0.3
+Version 1.0.4
 
 =cut
 
-our $VERSION = '1.0.3';
+our $VERSION = '1.0.4';
 
 =head1 SYNOPSIS
 
     use Konfidi::Client;
-    use Error(:try);
+    use Error qw(:try);
 
     my $k = Konfidi::Client->new();
     $k->server('http://test-server.konfidi.org');
     try {
-        $response = $k->query($truster_40char_pgp_fingerprint, $trusted_40char_pgp_fingerprint, 'internet-communication');
+        my $response = $k->query($truster_40char_pgp_fingerprint, $trusted_40char_pgp_fingerprint, 'http://www.konfidi.org/ns/topics/0.0#internet-communication');
     } catch Konfidi::Client::Error with {
         my $E = shift;
         die "Couldn't query the trustserver: $E";
@@ -59,6 +59,7 @@ Create a new C<Konfidi::Client>
 
 use Carp;
 use LWP::UserAgent;
+use URI::Escape;
 use Konfidi::Client::Error;
 use Konfidi::Response;
 
@@ -75,8 +76,7 @@ sub new {
 sub _initialize {
     my $self = shift;
     $self->{server} = undef;
-    $self->{strategy} = 'Multiplicative2';
-    $self->{pgpquery} = 0;
+    #$self->{strategy} = 'Multiplicative2';
 	return;
 }
 
@@ -90,7 +90,7 @@ sub server {
     my $self = shift;
     if (@_) {
         $self->{server} = shift;
-        if (substr($self->{server}, -1, 1) eq '/') {
+        if ($self->{server} && substr($self->{server}, -1, 1) eq '/') {
             chop $self->{server};
         }
     }
@@ -99,7 +99,7 @@ sub server {
 
 =head2 C<strategy()>
 
-Get or set which trust propogation strategy to use.  Default: C<Multiplicative2>
+Get or set which trust propogation strategy to use.  No default (server decides)
 
 =cut
 
@@ -109,21 +109,9 @@ sub strategy {
     return $self->{strategy};
 }
 
-=head2 C<pgpquery()>
-
-Get or set whether to verify a pgp connection  (0/1) default C<0>
-
-=cut
-
-sub pgpquery {
-    my $self = shift;
-    if (@_) { $self->{pgpquery} = shift;}
-    return $self->{pgpquery};
-}
-
 =head2 C<query($source, $sink, $topic)>
 
-Query the Konfidi Trustserver, using the default or set C<server>, C<strategy>, and C<pgpquery> values.  C<$source> and C<$sink> must be 40 character long OpenPGP fingerprint identifiers.  The only topic currently in use is C<'internet-communication'>.
+Query the Konfidi Trustserver, using the default or set C<server> and C<strategy> values.  C<$source> and C<$sink> must be 40 character long OpenPGP fingerprint identifiers.  The only topic currently in use is C<'http://www.konfidi.org/ns/topics/0.0#internet-communication'>.
 Returns a L<Konfidi::Response> or throws a L<Konfidi::Client::Error> upon error
 
 =cut
@@ -132,13 +120,24 @@ sub query {
     my $self = shift;
     my ($source, $sink, $topic) = @_;
     
+    throw Konfidi::Client::Error("You must set the 'server'") unless $self->{server};
+    
     my $ua = LWP::UserAgent->new;
     $ua->agent("Perl Konfidi::Client/$VERSION");
     
-    my $url = $self->{server} . '/query?strategy=' . $self->{'strategy'} . '&pgpquery=' . $self->{'pgpquery'};
-    $url .= "&source=$source";
-    $url .= "&sink=$sink";
-    $url .= "&topic=$topic";
+    my $url = $self->{server} . '/query?';
+    if (defined($self->{'strategy'})) {
+        $url .= 'strategy=' . uri_escape($self->{'strategy'}) . '&';
+    }
+    if (defined($source)) {
+        $url .= "source=" . uri_escape($source) . '&';
+    }
+    if (defined($sink)) {
+        $url .= "sink=" . uri_escape($sink) . '&';
+    }
+    if (defined($topic)) {
+        $url .= "topic=" . uri_escape($topic) . '&';
+    }
     my $req = HTTP::Request->new(GET => $url);
     #$req->content_type('application/x-www-form-urlencoded');
     #$req->content('query=libwww-perl&mode=dist');

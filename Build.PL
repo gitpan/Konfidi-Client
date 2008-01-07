@@ -19,6 +19,7 @@ my $builder = Module::Build->new(
         'Error' => 0,
         'Carp' => 0,
         'Scalar::Util' => 0,
+        'URI::Escape' => 0,
     },
     add_to_cleanup      => [ 'Konfidi-*' ],
 );

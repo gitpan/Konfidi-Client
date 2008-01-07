@@ -31,13 +31,13 @@ my $andy = '8A335B856C4AE39A0C36A47F152C15A0F2454727';
 my $k = Konfidi::Client->new();
 $k->server('http://bogus');
 throws_ok {
-    $k->query($dave,$andy,'internet-communication');
+    $k->query($dave,$andy,'http://www.konfidi.org/ns/topics/0.0#internet-communication');
 } 'Konfidi::Client::Error', 'invalid server';
 
-$k->server('http://brondsema.gotdns.com/~dpb2/frontend');
+$k->server('http://test-server.konfidi.org/');
 lives_and {
-    my $r = $k->query($dave,$andy,'internet-communication');
-    ok(is_float($r), "response is a float");
+    my $r = $k->query($dave,$andy,'http://www.konfidi.org/ns/topics/0.0#internet-communication')->{'Rating'};
+    ok(is_float($r), "response is a float") or diag "response is " . $r;
     cmp_ok($r, '>=', 0, "response value lower bound");
     cmp_ok($r, '<=', 1, "response value upper bound");
 } 'basic query';

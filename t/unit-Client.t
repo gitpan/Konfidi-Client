@@ -42,8 +42,10 @@ is($k->server, "http://foo/bar", 'server get/set strip /');
 $k->strategy("myStrategy");
 is($k->strategy, "myStrategy", 'strategy get/set');
 
-$k->pgpquery(1);
-is($k->pgpquery, 1, 'pgpquery get/set');
+$k->server(undef);
+throws_ok {
+    $k->query(123,456,'http://www.konfidi.org/ns/topics/0.0#internet-communication');
+} 'Konfidi::Client::Error', 'undef server string';
 
 
 #=head1 Tests using a mock server
@@ -106,7 +108,7 @@ $ref = setup_daemon sub {
     $c->send_error(RC_FORBIDDEN);
 };
 throws_ok {
-    $k->query(123,456,'internet-communication');
+    $k->query(123,456,'http://www.konfidi.org/ns/topics/0.0#internet-communication');
 } 'Konfidi::Client::Error', 'invalid server';
 close_daemon($ref);
 
@@ -118,7 +120,7 @@ $ref = setup_daemon sub {
     $c->send_response(HTTP::Response->new(200, undef, HTTP::Headers->new('Content-Type' => 'text/html'), "<html>blarg</html>"));
 };
 throws_ok {
-    $k->query(123,456,'internet-communication');
+    $k->query(123,456,'http://www.konfidi.org/ns/topics/0.0#internet-communication');
 } 'Konfidi::Client::Error', 'invalid response type';
 close_daemon($ref);
 
@@ -130,7 +132,7 @@ $ref = setup_daemon sub {
     $c->send_response(HTTP::Response->new(200, undef, HTTP::Headers->new('Content-Type' => 'text/plain'), "Error: oops"));
 };
 throws_ok {
-    $k->query(123,456,'internet-communication');
+    $k->query(123,456,'http://www.konfidi.org/ns/topics/0.0#internet-communication');
 } 'Konfidi::Client::Error', 'trustserver error';
 close_daemon($ref);
 
@@ -141,8 +143,8 @@ $ref = setup_daemon sub {
     $c->send_response(HTTP::Response->new(200, undef, HTTP::Headers->new('Content-Type' => 'text/plain'), "Foo: 12\nRating: 0.23\nBar: baz"));
 };
 lives_and {
-    ok($k->query(123,456,'internet-communication') == 0.23);
-    ok($k->query(123,456,'internet-communication')->{'Rating'} == 0.23);
+    ok($k->query(123,456,'http://www.konfidi.org/ns/topics/0.0#internet-communication') == 0.23);
+    ok($k->query(123,456,'http://www.konfidi.org/ns/topics/0.0#internet-communication')->{'Rating'} == 0.23);
 } 'successful query';
 close_daemon($ref);
 
